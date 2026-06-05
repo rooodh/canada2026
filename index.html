@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voyage Canada — BPI 1 • 8-18 juin 2026</title>
+<style>
+:root{--bg:#faf9f6;--card:#fff;--text:#1a1a1a;--muted:#6b6b6b;--accent:#c13832;--accent2:#2d5a27;--border:#e5e0d8;--pill-bg:#f0ebe3;--shadow:0 1px 3px rgba(0,0,0,.06)}[data-theme=dark]{--bg:#1a1816;--card:#252320;--text:#e8e0d5;--muted:#9a948c;--accent:#e0706a;--accent2:#5a9a4e;--border:#3a3530;--pill-bg:#302c27;--shadow:0 1px 3px rgba(0,0,0,.2)}*{box-sizing:border-box;margin:0;padding:0}body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding:0 0 60px;max-width:720px;margin:0 auto}a{color:var(--accent);text-decoration:none}
+header{padding:32px 16px 24px;text-align:center;border-bottom:1px solid var(--border);margin:0 12px}header h1{font-size:1.6em;line-height:1.25;margin-bottom:4px}header .dates{color:var(--muted);font-size:.9em}.top-bar{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;position:sticky;top:0;background:var(--bg);z-index:10;border-bottom:1px solid var(--border)}.top-bar .logo{font-weight:700;font-size:1em;color:var(--accent)}
+.theme-btn{background:var(--pill-bg);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:.8em;cursor:pointer;color:var(--text)}
+.section{padding:20px 16px}.section h2{font-size:1.15em;margin-bottom:12px;display:flex;align-items:center;gap:6px}.card{background:var(--card);border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:var(--shadow);border:1px solid var(--border)}
+.emergency .card{border-left:3px solid var(--accent)}.pill{display:inline-block;background:var(--pill-bg);color:var(--muted);font-size:.75em;padding:2px 10px;border-radius:10px;margin-right:4px}
+.row{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}.row .label{color:var(--muted);font-size:.8em}.row .val{font-weight:500;text-align:right}
+.day-header{display:flex;align-items:center;gap:10px;margin-bottom:8px}.day-num{background:var(--accent);color:#fff;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9em;flex-shrink:0}.day-title{font-weight:600;font-size:1.05em}.day-sub{font-size:.8em;color:var(--muted)}
+.timeline{position:relative;padding-left:20px;border-left:2px solid var(--border);margin:8px 0}.timeline li{position:relative;margin-bottom:10px;font-size:.9em;list-style:none}.timeline li::before{content:'';position:absolute;left:-26px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent2)}
+.hotel-card{padding:12px;background:var(--pill-bg);border-radius:8px;margin:8px 0 0;font-size:.85em}.hotel-card strong{display:block;margin-bottom:4px}
+.checklist label{display:flex;align-items:flex-start;gap:8px;padding:6px 0;font-size:.9em;cursor:pointer}.checklist input[type=checkbox]{margin-top:3px;accent-color:var(--accent2)}
+details{margin:8px 0}details summary{cursor:pointer;font-weight:600;font-size:.95em;padding:4px 0}
+.tabs{display:flex;gap:4px;overflow-x:auto;padding:0 16px 8px;border-bottom:1px solid var(--border);margin-bottom:16px}.tabs button{flex-shrink:0;background:none;border:none;padding:8px 14px;font-size:.85em;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s}.tabs button.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.tab-panel{display:none}.tab-panel.active{display:block}
+footer{text-align:center;padding:40px 16px;color:var(--muted);font-size:.8em;border-top:1px solid var(--border);margin:0 12px}
+@media(max-width:480px){header h1{font-size:1.3em}.day-num{width:30px;height:30px;font-size:.75em}}
+</style>
+</head>
+<body>
+<div class="top-bar"><span class="logo">🍁 Canada 2026</span><button class="theme-btn" onclick="document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark';this.textContent=document.documentElement.dataset.theme==='dark'?'☀️ Jour':'🌙 Nuit';localStorage.setItem('theme',document.documentElement.dataset.theme)" id="themeToggle">🌙 Nuit</button></div>
+<header>
+<h1>Autotour Ontario & Québec</h1>
+<div class="dates">BPI 1 · 27 voyageurs · 8 → 18 juin 2026</div>
+</header>
+
+<div class="tabs" id="mainTabs">
+<button class="active" onclick="switchTab('overview',this)">🗺️ Parcours</button>
+<button onclick="switchTab('journal',this)">📝 Journal</button>
+<button onclick="switchTab('practical',this)">ℹ️ Pratique</button>
+<button onclick="switchTab('checklist',this)">✅ Checklist</button>
+</div>
+
+<!-- ====== OVERVIEW TAB ====== -->
+<div class="tab-panel active" id="tab-overview">
+
+<!-- Emergency card -->
+<div class="section emergency">
+<h2>🆘 Urgences</h2>
+<div class="card">
+<div class="row"><span class="label">Canada Découverte (bureau)</span><span class="val">+1 514-436-1212<br><small>Lun-Ven 8h30-17h</small></span></div>
+<div class="row" style="margin-top:8px"><span class="label">Canada Découverte (hors bureau)</span><span class="val">+1 514-295-2753</span></div>
+<div class="row" style="margin-top:8px"><span class="label">Vivatours (week-end, jours fériés)</span><span class="val">+33 6.82.67.08.74</span></div>
+<div class="row" style="margin-top:8px"><span class="label">Michel Nadeau (accueil YYZ)</span><span class="val">+1 416-875-1810</span></div>
+<div class="row" style="margin-top:8px"><span class="label">Chantal Dumas (départ YUL)</span><span class="val">+1 514-839-8581</span></div>
+<div class="row" style="margin-top:8px"><span class="label">Police/Pompiers/Ambulance</span><span class="val">911</span></div>
+</div>
+</div>
+
+<div class="section">
+<h2>🗺️ L'itinéraire</h2>
+
+<!-- J1: Niagara -->
+<div class="card"><div class="day-header"><div class="day-num">J1</div><div><div class="day-title">Paris → Toronto → Niagara Falls</div><div class="day-sub">Lun 8 juin · 130 km · 1h30</div></div></div>
+<div class="timeline"><ul>
+<li>✈️ Vol AC 0873 CDG→YYZ, arrivée <strong>14h50</strong></li>
+<li>🤝 Accueil Michel Nadeau, pancarte Vivatours</li>
+<li>🚗 Prise en charge location AVIS (cat. E)</li>
+<li>🛣️ Route vers Niagara Falls</li>
+<li>🏨 Check-in Days Inn après 16h</li>
+</ul></div>
+<div class="hotel-card"><strong>🏨 Days Inn & Suites Niagara Falls</strong>5068 Centre St, Niagara Falls, ON L2G 2N9<br>Tél: +1 905-357-2550 · Check-in: 16h · Check-out: 11h · Parking: 22$ CAD/nuit · P'tit déj: buffet 7h30-10h30</div>
+</div>
+
+<!-- J2: Toronto -->
+<div class="card"><div class="day-header"><div class="day-num">J2</div><div><div class="day-title">Niagara Falls → Toronto</div><div class="day-sub">Mar 9 juin</div></div></div>
+<div class="timeline"><ul>
+<li>🌅 Matin libre à Niagara</li>
+<li>🛣️ Route vers Mississauga (banlieue ouest de Toronto)</li>
+<li>🏙️ Toronto : CN Tower, Distillery District, marché St. Lawrence</li>
+</ul></div>
+<div class="hotel-card"><strong>🏨 Spark by Hilton Mississauga</strong>50 Britannia Rd E, Mississauga, ON L4Z 2G2<br>Tél: +1 905-890-1200 · Check-in: 15h · Check-out: 11h · Parking: gratuit · P'tit déj: continental 6h-10h · ⚠️ Empreinte 100$ CAD</div>
+</div>
+
+<!-- J3: Gatineau -->
+<div class="card"><div class="day-header"><div class="day-num">J3</div><div><div class="day-title">Toronto → Gatineau</div><div class="day-sub">Mer 10 juin · ~450 km · ~4h30</div></div></div>
+<div class="timeline"><ul>
+<li>🛣️ Longue route vers l'est, traversée de l'Outaouais</li>
+<li>🌉 Arrivée à Gatineau (face à Ottawa)</li>
+<li>🏛️ Parlement canadien, musée des civilisations (si le temps le permet)</li>
+</ul></div>
+<div class="hotel-card"><strong>🏨 Quality Inn & Suites Gatineau</strong>11 rue Bellehumeur, Gatineau, QC J8T 6K5<br>Tél: +1 819-568-5252 · Check-in: 16h · Check-out: 11h · Parking: gratuit · P'tit déj: américain 7h-10h</div>
+</div>
+
+<!-- J4: Saint-Alexis-des-Monts -->
+<div class="card"><div class="day-header"><div class="day-num">J4</div><div><div class="day-title">Gatineau → Saint-Alexis-des-Monts</div><div class="day-sub">Jeu 11 juin · ~350 km · ~3h45</div></div></div>
+<div class="timeline"><ul>
+<li>🛣️ Route vers la Mauricie</li>
+<li>🌲 Arrivée en pleine nature québécoise</li>
+<li>🍽️ Dîner 3 services inclus à la pourvoirie</li>
+<li>🛶 Pédalo, kayak, excursions guidées dispo</li>
+</ul></div>
+<div class="hotel-card"><strong>🏨 Pourvoirie du Lac Blanc ⭐</strong>1000 chemin du Domaine Pellerin, Saint-Alexis-des-Monts, QC J0K 1V0<br>Tél: +1 819-265-4242 · Check-in: 17h · Check-out: 10h · Parking: gratuit · P'tit déj: à la carte 7h-10h · <strong>🍽️ Dîner 3 services inclus</strong></div>
+</div>
+
+<!-- J5: Roberval -->
+<div class="card"><div class="day-header"><div class="day-num">J5</div><div><div class="day-title">St-Alexis → Roberval (Lac Saint-Jean)</div><div class="day-sub">Ven 12 juin · ~350 km · ~4h</div></div></div>
+<div class="timeline"><ul>
+<li>🛣️ Route vers le nord, direction Lac Saint-Jean</li>
+<li>🌊 Arrivée dans la région du Saguenay–Lac-Saint-Jean</li>
+<li>🍁 Roberval, rives du lac</li>
+</ul></div>
+<div class="hotel-card"><strong>🏨 Roberval</strong>Hôtel à confirmer depuis le roadbook · Voir roadbook complet pour les détails</div>
+</div>
+
+<!-- J6: La Baie -->
+<div class="card"><div class="day-header"><div class="day-num">J6</div><div><div class="day-title">Roberval → Ville La Baie (Saguenay)</div><div class="day-sub">Sam 13 juin · ~200 km · ~2h30</div></div></div>
+<div class="timeline"><ul>
+<li>🛣️ Route vers le Saguenay</li>
+<li>🌊 Fjord du Saguenay — croisière possible</li>
+<li>🐋 Observation des baleines (si saison)</li>
+</ul></div>
+<div class="hotel-card"><strong>🏨 Auberge des Battures</strong>6295 de la Grande Baie, Saguenay, QC G7B 3P6<br>Tél: +1 418-544-8234 · Check-in: 15h · Check-out: 11h · Parking: gratuit · P'tit déj: à la carte 7h-12h · ⚠️ Empreinte 150$ CAD · Mentionner Groupe BPI1</div>
+</div>
+
+<!-- J7: La Malbaie -->
+<div class="card"><div class="day-header"><div class="day-num">J7</div><div><div class="day-title">La Baie → La Malbaie (Charlevoix)</div><div class="day-sub">Dim 14 juin · ~200 km · ~2h45</div></div></div>
+<div class="timeline"><ul>
+<li>🛣️ Descente le long du Saint-Laurent</li>
+<li>🏞️ Région de Charlevoix, paysages sublimes</li>
+<li>🐋 Observation baleines (Tadoussac à proximité)</li>
+</ul></div>
+<div class="hotel-card"><strong>🏨 Le Manoir Charlevoix</strong>1030 chemin du Golf, La Malbaie, QC G5A 1H1<br>Tél: +1 855-363-4413 · Check-in: 16h · Check-out: 11h · Parking: gratuit · P'tit déj: continental 7h-10h</div>
+</div>
+
+<!-- J8: Québec -->
+<div class="card"><div class="day-header"><div class="day-num">J8</div><div><div class="day-title">La Malbaie → Québec</div><div class="day-sub">Lun 15 juin · ~150 km · ~2h</div></div></div>
+<div class="timeline"><ul>
+<li>🛣️ Route vers la Vieille Capitale</li>
+<li>🏰 Vieux-Québec, Château Frontenac, Petit Champlain</li>
+<li>🌉 Plaines d'Abraham, terrasse Dufferin</li>
+</ul></div>
+<div class="hotel-card"><strong>🏨 Hôtel Universel Québec Ste-Foy</strong>2300 ch Ste-Foy, Québec, QC G1V 1S5<br>Tél: +1 418-653-5250 · Check-in: 16h · Check-out: 11h · Parking: gratuit · P'tit déj: américain 7h30-8h · ⚠️ Mentionner Groupe BPI1</div>
+</div>
+
+<!-- J9: Québec / Montréal -->
+<div class="card"><div class="day-header"><div class="day-num">J9</div><div><div class="day-title">Québec → Montréal</div><div class="day-sub">Mar 16 juin · ~270 km · ~3h</div></div></div>
+<div class="timeline"><ul>
+<li>🛣️ Route vers Montréal</li>
+<li>🏙️ Vieux-Montréal, Mont-Royal, Plateau</li>
+<li>🥯 Bagels St-Viateur, poutine, smoked meat</li>
+</ul></div>
+<div class="hotel-card"><strong>🏨 Montréal (J9)</strong>Hôtel à confirmer depuis le roadbook</div>
+</div>
+
+<!-- J10: Montréal jour 2 -->
+<div class="card"><div class="day-header"><div class="day-num">J10</div><div><div class="day-title">Montréal → Départ</div><div class="day-sub">Mer 17 juin · Journée libre</div></div></div>
+<div class="timeline"><ul>
+<li>🏙️ Journée libre à Montréal</li>
+<li>🛍️ Shopping, dernières visites</li>
+<li>🍽️ Dernier resto du groupe</li>
+</ul></div>
+<div class="hotel-card"><strong>🏨 Montréal (J10)</strong>Hôtel à confirmer depuis le roadbook</div>
+</div>
+
+<!-- J11: Départ -->
+<div class="card"><div class="day-header"><div class="day-num">J11</div><div><div class="day-title">Montréal → Paris</div><div class="day-sub">Jeu 18 juin · Jour de départ</div></div></div>
+<div class="timeline"><ul>
+<li>🕓 <strong>16h30</strong> : Rdv au lobby de l'hôtel avec Chantal Dumas</li>
+<li>🚌 Transfert vers YUL (aéroport Montréal-Trudeau)</li>
+<li>✈️ Vol retour vers Paris CDG</li>
+</ul></div>
+</div>
+
+</div>
+</div>
+
+<!-- ====== JOURNAL TAB ====== -->
+<div class="tab-panel" id="tab-journal">
+<div class="section">
+<p style="color:var(--muted);font-style:italic">Le journal sera rempli au fur et à mesure du voyage. Chaque jour, envoie-moi tes impressions, photos, anecdotes par Telegram et je mettrai à jour cette section.</p>
+<br>
+<div class="card">
+<div class="day-header"><div class="day-num">J1</div><div class="day-title">Lun 8 juin — Arrivée à Niagara</div></div>
+<p style="color:var(--muted);font-size:.9em;font-style:italic">À venir…</p>
+</div>
+<div class="card">
+<div class="day-header"><div class="day-num">J2</div><div class="day-title">Mar 9 juin — Toronto</div></div>
+<p style="color:var(--muted);font-size:.9em;font-style:italic">À venir…</p>
+</div>
+<div class="card">
+<div class="day-header"><div class="day-num">J3</div><div class="day-title">Mer 10 juin — Gatineau</div></div>
+<p style="color:var(--muted);font-size:.9em;font-style:italic">À venir…</p>
+</div>
+<div class="card">
+<div class="day-header"><div class="day-num">J4</div><div class="day-title">Jeu 11 juin — Lac Blanc</div></div>
+<p style="color:var(--muted);font-size:.9em;font-style:italic">À venir…</p>
+</div>
+<p style="text-align:center;color:var(--muted);font-size:.85em;margin:20px 0">(J5–J11 suivront au fil du voyage)</p>
+</div>
+</div>
+
+<!-- ====== PRACTICAL TAB ====== -->
+<div class="tab-panel" id="tab-practical">
+<div class="section">
+<h2>💡 Conseils pratiques</h2>
+
+<details open><summary>📱 Téléphone & Internet</summary>
+<div style="padding:8px 0;font-size:.9em">
+<p><strong>Option 1 :</strong> Vérifier si ton forfait Free/autre inclut l'Amérique du Nord (attention au roaming)</p>
+<p><strong>Option 2 :</strong> eSIM HOLA Fly (recommandé par le CSE) — internet illimité, idéal pour GPS et WhatsApp</p>
+<p><strong>Important :</strong> Un groupe WhatsApp sera créé par le partenaire local avant l'arrivée pour communication groupe</p>
+</div></details>
+
+<details open><summary>💳 Paiements</summary>
+<div style="padding:8px 0;font-size:.9em">
+<p>• Cartes Visa/Mastercard acceptées <strong>presque partout</strong> (sans contact)</p>
+<p>• Prix affichés <strong>hors taxes</strong> (ajouter ~5% TPS + ~9.975% TVQ au Québec)</p>
+<p>• <strong>~10-15% de pourboire</strong> au restaurant (souvent suggéré sur le terminal)</p>
+<p>• Liquide quasi inutile — prévois juste un peu pour les petits commerces</p>
+</div></details>
+
+<details open><summary>🔌 Électricité</summary>
+<div style="padding:8px 0;font-size:.9em">
+<p>• Prises <strong>110V, fiches plates (type A/B)</strong> → adaptateur obligatoire</p>
+<p>• Sèche-cheveux : utiliser celui de l'hôtel (les appareils 220V fonctionnent mal sur 110V)</p>
+</div></details>
+
+<details open><summary>🧳 Bagages</summary>
+<div style="padding:8px 0;font-size:.9em">
+<p>• 1 bagage soute <strong>23 kg</strong> + 1 bagage cabine par personne</p>
+<p>• Privilégier les <strong>bagages souples</strong> (plus faciles dans le coffre)</p>
+<p>• Bagage abîmé → déclaration immédiate au comptoir de la compagnie</p>
+</div></details>
+
+<details open><summary>🚗 Location voiture</summary>
+<div style="padding:8px 0;font-size:.9em">
+<p>• AVIS, catégorie E (Chevrolet Malibu ou équivalent)</p>
+<p>• <strong>Voucher obligatoire</strong> à présenter au comptoir</p>
+<p>• Frais d'abandon : ~<strong>350 CAD</strong> à régler sur place</p>
+<p>• Assurance incluse dans le package</p>
+<p>• Permis français suffisant (vérifier permis international si demandé)</p>
+</div></details>
+
+<details open><summary>🛣️ Conduite au Québec</summary>
+<div style="padding:8px 0;font-size:.9em">
+<p>• <strong>Feu rouge = pas de tourne-à-droite</strong> sauf panneau vert (contrairement au reste du Canada)</p>
+<p>• Vitesse en km/h (pas mph comme aux USA)</p>
+<p>• Panneaux en français (ou bilingues)</p>
+<p>• <strong>Travaux fréquents en été</strong>, prévoir 30-60 min de marge</p>
+<p>• Consulter <strong>www.quebec511.info</strong> avant les longs trajets</p>
+<p>• Attention aux cyclistes et piétons dans les villages touristiques</p>
+</div></details>
+
+<details open><summary>🌤️ Météo juin</summary>
+<div style="padding:8px 0;font-size:.9em">
+<p>• Températures : <strong>15-28°C</strong> selon les régions</p>
+<p>• Plus frais au Saguenay/Lac-St-Jean, plus chaud à Toronto/Niagara</p>
+<p>• Prévoir : t-shirts, pulls légers, veste imperméable, crème solaire</p>
+<p>• Moustiques possibles en Mauricie et au Lac-St-Jean</p>
+</div></details>
+
+<details><summary>📋 Documents à avoir</summary>
+<div style="padding:8px 0;font-size:.9em">
+<p>• Passeport valide + AVE (Autorisation de Voyage Électronique)</p>
+<p>• Voucher AVIS (remis à l'aéroport)</p>
+<p>• Roadbook / itinéraire</p>
+<p>• Assurance assistance médicale et rapatriement (n° de contrat dans le carnet)</p>
+<p>• Copies numériques de tout dans ton téléphone</p>
+</div></details>
+
+</div>
+</div>
+
+<!-- ====== CHECKLIST TAB ====== -->
+<div class="tab-panel" id="tab-checklist">
+<div class="section">
+<h2>✅ Checklist pré-départ</h2>
+<div class="checklist">
+<label><input type="checkbox"> Passeport valide (vérifier date expiration)</label>
+<label><input type="checkbox"> AVE Canada (demander en ligne, ~7$ CAD)</label>
+<label><input type="checkbox"> Adaptateur prise US/Canada (type A/B, 110V)</label>
+<label><input type="checkbox"> eSIM ou forfait Amérique du Nord</label>
+<label><input type="checkbox"> Permis de conduire + éventuel permis international</label>
+<label><input type="checkbox"> Carte bancaire Visa/Mastercard (prévenir la banque)</label>
+<label><input type="checkbox"> Un peu de cash CAD (~100-200$)</label>
+<label><input type="checkbox"> Vêtements : t-shirts, pulls, veste imper, chaussures confort</label>
+<label><input type="checkbox"> Crème solaire + anti-moustiques</label>
+<label><input type="checkbox"> Médicaments personnels (avec ordonnance si nécessaire)</label>
+<label><input type="checkbox"> Télécharger le carnet de voyage HTML sur le téléphone</label>
+<label><input type="checkbox"> Batterie externe / câble chargeur voiture</label>
+<label><input type="checkbox"> Sac cabine avec change de rechange (au cas où)</label>
+<label><input type="checkbox"> Copies numériques passeport/AVE dans le cloud</label>
+</div>
+
+<br>
+<h2>🥞 À goûter absolument</h2>
+<div class="checklist">
+<label><input type="checkbox"> Poutine (fromage en grains, sauce brune)</label>
+<label><input type="checkbox"> Bagels de Montréal (St-Viateur ou Fairmount)</label>
+<label><input type="checkbox"> Smoked meat (Schwartz's à Montréal)</label>
+<label><input type="checkbox"> Sirop d'érable (direct de la cabane à sucre)</label>
+<label><input type="checkbox"> Tarte au sucre / pouding chômeur</label>
+<label><input type="checkbox"> Bière de microbrasserie québécoise</label>
+<label><input type="checkbox"> Pêche blanche / poisson du Lac Saint-Jean</label>
+</div>
+</div>
+</div>
+
+<footer>
+Carnet de voyage généré par Hermes · Dernière mise à jour : 5 juin 2026 · Mis à jour quotidiennement pendant le voyage<br>
+📴 Ce fichier fonctionne hors-ligne — sauvegardez-le sur votre téléphone
+</footer>
+
+<script>
+const t = localStorage.getItem('theme');
+if(t==='dark'){document.documentElement.dataset.theme='dark';}
+document.getElementById('themeToggle').textContent = document.documentElement.dataset.theme==='dark' ? '☀️ Jour' : '🌙 Nuit';
+
+function switchTab(name,btn){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// Checkboxes persistence
+document.querySelectorAll('.checklist input[type=checkbox]').forEach(cb=>{
+  const key='ca-check-'+Array.from(cb.parentElement.parentElement.querySelectorAll('input')).indexOf(cb);
+  cb.checked=localStorage.getItem(key)==='1';
+  cb.addEventListener('change',()=>localStorage.setItem(key,cb.checked?'1':'0'));
+});
+</script>
+</body>
+</html>
