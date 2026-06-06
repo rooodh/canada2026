@@ -20,27 +20,9 @@ details{margin:8px 0}details summary{cursor:pointer;font-weight:600;font-size:.9
 .tab-panel{display:none}.tab-panel.active{display:block}
 footer{text-align:center;padding:40px 16px;color:var(--muted);font-size:.8em;border-top:1px solid var(--border);margin:0 12px}
 @media(max-width:480px){header h1{font-size:1.3em}.day-num{width:30px;height:30px;font-size:.75em}}
-
-/* Password gate */
-#pw-overlay{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;transition:opacity .4s}
-#pw-overlay.hidden{opacity:0;pointer-events:none}
-#pw-overlay h1{font-size:1.4em;margin-bottom:4px}
-#pw-overlay p{color:var(--muted);font-size:.9em;margin-bottom:24px}
-#pw-input{padding:10px 16px;border:1px solid var(--border);border-radius:8px;font-size:1em;background:var(--card);color:var(--text);width:200px;text-align:center;outline:none}
-#pw-input:focus{border-color:var(--accent)}
-#pw-error{color:var(--accent);font-size:.85em;margin-top:10px;min-height:1.4em}
-#pw-submit{margin-top:16px;padding:10px 28px;border:none;border-radius:8px;background:var(--accent);color:#fff;font-size:.95em;cursor:pointer}
-#pw-submit:hover{opacity:.9}
 </style>
 </head>
 <body>
-<div id="pw-overlay">
-<h1>🍁 Carnet Canada 2026</h1>
-<p>Contenu protégé — entrez le code</p>
-<input type="password" id="pw-input" placeholder="Mot de passe" autocomplete="off">
-<div id="pw-error"></div>
-<button id="pw-submit">Accéder</button>
-</div>
 <div class="top-bar"><span class="logo">🍁 Canada 2026</span><button class="theme-btn" onclick="document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark';this.textContent=document.documentElement.dataset.theme==='dark'?'☀️ Jour':'🌙 Nuit';localStorage.setItem('theme',document.documentElement.dataset.theme)" id="themeToggle">🌙 Nuit</button></div>
 <header>
 <h1>Autotour Ontario & Québec</h1>
@@ -566,30 +548,6 @@ document.querySelectorAll('.checklist input[type=checkbox]').forEach(cb=>{
   cb.checked=localStorage.getItem(key)==='1';
   cb.addEventListener('change',()=>localStorage.setItem(key,cb.checked?'1':'0'));
 });
-
-// Password gate — SHA-256("socrate")
-const PW_HASH = '452cf8d3db5004b27e97f0cfb3c2ca74f1e0b93d004b0f4229533151949c6070';
-const overlay = document.getElementById('pw-overlay');
-const input = document.getElementById('pw-input');
-const error = document.getElementById('pw-error');
-const submit = document.getElementById('pw-submit');
-
-async function checkPw() {
-  const h = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input.value));
-  const hex = Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2,'0')).join('');
-  if(hex === PW_HASH) {
-    overlay.classList.add('hidden');
-    sessionStorage.setItem('ca2026_auth','1');
-  } else {
-    error.textContent = 'Code incorrect';
-    input.value = '';
-    input.focus();
-  }
-}
-if(sessionStorage.getItem('ca2026_auth')==='1'){overlay.classList.add('hidden')}
-submit.addEventListener('click',checkPw);
-input.addEventListener('keydown',e=>{if(e.key==='Enter')checkPw()});
-input.focus();
 </script>
 </body>
 </html>
