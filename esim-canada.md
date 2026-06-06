@@ -12,8 +12,8 @@
 | Numéro SIM | 89330126121509860590 |
 | Numéro mobile | +33 6 33 97 98 37 |
 | SM-DP Address | rsp-0004.oberthur.net |
-| Code d'activation | ABMGD-Z6KAP-HDLMF-GBWRW |
-| PUK | 70020991 |
+|| Code d'activation | 🔒 Voir Drive |
+|| PUK | 🔒 Voir Drive |
 
 ## Installation
 
