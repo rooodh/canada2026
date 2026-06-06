@@ -26,7 +26,7 @@ footer{text-align:center;padding:40px 16px;color:var(--muted);font-size:.8em;bor
 <div class="top-bar"><span class="logo">🍁 Canada 2026</span><button class="theme-btn" onclick="document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark';this.textContent=document.documentElement.dataset.theme==='dark'?'☀️ Jour':'🌙 Nuit';localStorage.setItem('theme',document.documentElement.dataset.theme)" id="themeToggle">🌙 Nuit</button></div>
 <header>
 <h1>Autotour Ontario & Québec</h1>
-<div class="dates">BPI 1 · 27 voyageurs · 8 → 18 juin 2026</div>
+<div class="dates">BPI 1 · 27 voyageurs · 8 → 18 juin 2026 · <span id="updateTs">MAJ</span></div>
 </header>
 
 <div class="tabs" id="mainTabs">
@@ -634,6 +634,10 @@ function switchTab(name,btn){
   document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
 }
+
+// Affiche la date de dernière modification
+var d = new Date(document.lastModified);
+document.getElementById('updateTs').textContent = 'MAJ ' + d.toLocaleDateString('fr-FR') + ' ' + d.toLocaleTimeString('fr-FR', {hour:'2-digit',minute:'2-digit'});
 
 // Checkboxes persistence
 document.querySelectorAll('.checklist input[type=checkbox]').forEach(cb=>{
