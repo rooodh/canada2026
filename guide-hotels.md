@@ -6,7 +6,7 @@
 |---|---|---|---|
 | J1 | **Days Inn & Suites Niagara Falls** | 5068 Centre St, Niagara Falls, ON | [▶ Maps](https://maps.google.com/?q=Days+Inn+%26+Suites+5068+Centre+St+Niagara+Falls+ON) |
 | J2 | **Spark by Hilton Mississauga** | 50 Britannia Rd E, Mississauga, ON | [▶ Maps](https://maps.google.com/?q=Spark+by+Hilton+50+Britannia+Rd+E+Mississauga+ON) |
-| J3 | **Quality Inn & Suites Gatineau** | 11 rue Bellehumeur, Gatineau, QC | [▶ Maps](https://maps.google.com/?q=Quality+Inn+%26+Suites+11+rue+Bellehumeur+Gatineau+QC) |
+| J3 | **Quality Inn & Suites Gatineau** | 111 rue Bellehumeur, Gatineau, QC | [▶ Maps](https://maps.google.com/?q=Quality+Inn+%26+Suites+111+rue+Bellehumeur+Gatineau+QC) |
 | J4 | **Pourvoirie du Lac Blanc** ⭐ | 1000 ch. Domaine Pellerin, St-Alexis-des-Monts, QC | [▶ Maps](https://maps.google.com/?q=Pourvoirie+du+Lac+Blanc+1000+chemin+Domaine+Pellerin+Saint-Alexis-des-Monts+QC) |
 | J5 | **Hôtel Château Roberval** | 1225 bd Marcotte, Roberval, QC | [▶ Maps](https://maps.google.com/?q=Hotel+Chateau+Roberval+1225+bd+Marcotte+Roberval+QC) |
 | J6 | **Auberge des Battures** | 6295 de la Grande Baie, Saguenay, QC | [▶ Maps](https://maps.google.com/?q=Auberge+des+Battures+6295+de+la+Grande+Baie+Saguenay+QC) |
@@ -32,6 +32,7 @@
 
 ### J3 — Quality Inn & Suites Gatineau
 - ☎️ +1 819-568-5252
+- 📍 111 rue Bellehumeur, Gatineau, QC J8T 6K5
 - 🅿️ Parking gratuit
 - 🥞 Petit-déjeuner américain 7h-10h
 - ⏰ CI 16h / CO 11h
