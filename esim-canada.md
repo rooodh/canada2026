@@ -5,16 +5,6 @@
 **Acheté le :** 6 juin 2026  
 **Prix :** 16,49$ USD (~14,31€) avec code ETS25 (-25%)
 
-## Détails SIM
-
-| Champ | Valeur |
-|---|---|
-| Numéro SIM | 89330126121509860590 |
-| Numéro mobile | +33 6 33 97 98 37 |
-| SM-DP Address | rsp-0004.oberthur.net |
-|| Code d'activation | 🔒 Voir Drive |
-|| PUK | 🔒 Voir Drive |
-
 ## Installation
 
 ### iPhone (iOS)
@@ -37,3 +27,6 @@
 
 ## QR Code
 ![QR Code eSIM Canada](esim-canada.png)
+
+## Credentials
+⚠️ **Code d'activation et PUK** → voir Google Drive → `2026 canada/Papiers/esim-credentials.txt`
