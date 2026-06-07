@@ -1,0 +1,8 @@
+
+# Build scripts (one-shot, not needed for serving)
+compile-roadbook.py
+fix-roadbook.py
+
+# Python cache
+__pycache__/
+*.pyc
